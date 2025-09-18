@@ -62,11 +62,12 @@ stage('Deploy to Test Server') {
         withCredentials([sshUserPrivateKey(credentialsId: 'test-server-ssh', keyFileVariable: 'SSH_KEY')]) {
             sh """
                 ssh -o StrictHostKeyChecking=no -i $SSH_KEY ubuntu@13.60.219.69 \
-                'docker stop insureme || true && docker rm insureme || true && docker pull sandeepdadi/insure-me:10 && docker run -d -p 8080:8080 --name insureme sandeepdadi/insure-me:10'
+                'docker stop insureme || true && docker rm insureme || true && docker pull sandeepdadi/insure-me:10 && docker run -d -p 8080:8081 --name insureme sandeepdadi/insure-me:10'
             """
         }
     }
 }
+
 
     }
 }
