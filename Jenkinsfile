@@ -25,6 +25,7 @@ pipeline {
             }
         }
 
+
 stage('Publish Test Reports') {
     steps {
         publishHTML(target: [
@@ -38,16 +39,6 @@ stage('Publish Test Reports') {
     }
 }
 
-
-        stage('Publish Test Reports') {
-            steps {
-                publishHTML(target: [
-                    reportDir: 'target/surefire-reports',
-                    reportFiles: 'index.html',
-                    reportName: 'Test Report'
-                ])
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
