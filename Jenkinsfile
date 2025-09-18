@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main',
+                git branch: 'master',
                     credentialsId: 'github-creds',
                     url: 'https://github.com/Sandeepdadi/star-agile-insurance-project.git'
             }
