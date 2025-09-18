@@ -28,6 +28,20 @@ pipeline {
         stage('Publish Test Reports') {
             steps {
                 publishHTML(target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: false,
+                keepAll: true,
+                reportDir: 'target/surefire-reports',
+                reportFiles: 'index.html',
+                reportName: 'Test Report'
+                 ])
+            }
+        }
+
+
+        stage('Publish Test Reports') {
+            steps {
+                publishHTML(target: [
                     reportDir: 'target/surefire-reports',
                     reportFiles: 'index.html',
                     reportName: 'Test Report'
